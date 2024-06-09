@@ -1,0 +1,18 @@
+<div *ngIf="characters.length > 0">
+    <mat-card *ngFor="let character of characters">
+      <mat-card-header>
+        <mat-card-title>{{ character.name }}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image [src]="character.image" alt="{{ character.name }}">
+      <mat-card-content>
+        <p>Status: {{ character.status }}</p>
+        <p>Species: {{ character.species }}</p>
+      </mat-card-content>
+    </mat-card>
+  
+    <mat-paginator [length]="totalPages * 20"
+                   [pageSize]="20"
+                   [pageIndex]="currentPage - 1"
+                   (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>

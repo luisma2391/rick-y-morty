@@ -1,0 +1,17 @@
+<div *ngIf="locations.length > 0">
+    <mat-card *ngFor="let location of locations">
+      <mat-card-header>
+        <mat-card-title>{{ location.name }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Type: {{ location.type }}</p>
+        <p>Dimension: {{ location.dimension }}</p>
+      </mat-card-content>
+    </mat-card>
+  
+    <mat-paginator [length]="totalPages * 20"
+                   [pageSize]="20"
+                   [pageIndex]="currentPage - 1"
+                   (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>
